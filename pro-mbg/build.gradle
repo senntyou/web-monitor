@@ -1,0 +1,11 @@
+group = 'senntyou.sbs'
+version = '0.1.0'
+archivesBaseName = 'mbg'
+sourceCompatibility = 1.8
+description = 'Spring Boot Starter Mybatis Generator Application.'
+
+mainClassName = 'senntyou.sbs.mbg.Generator'
+
+dependencies {
+  implementation 'org.mybatis.generator:mybatis-generator-core:1.3.7'
+}
