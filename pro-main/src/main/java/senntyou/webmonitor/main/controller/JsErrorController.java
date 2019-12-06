@@ -22,13 +22,13 @@ import senntyou.webmonitor.mbg.model.JsError;
 
 @RestController
 @Api(tags = "JsErrorController", description = "JsError management")
-@RequestMapping("/api/jsError")
+@RequestMapping("/api")
 public class JsErrorController {
   @Autowired private JsErrorService jsErrorService;
   @Autowired private JsErrorDao jsErrorDao;
 
   @ApiOperation("Create jsError")
-  @RequestMapping(value = "/create", method = RequestMethod.POST)
+  @RequestMapping(value = "/jsError/create", method = RequestMethod.POST)
   @ResponseBody
   public CommonResult create(@RequestBody JsErrorParam jsErrorParam) {
     JsError jsError = jsErrorParam.toJsError();
@@ -41,8 +41,15 @@ public class JsErrorController {
     }
   }
 
-  @ApiOperation("Create multiple jsErrors")
-  @RequestMapping(value = "/createMulti", method = RequestMethod.POST)
+  @ApiOperation("Create jsErrorSdk")
+  @RequestMapping(value = "/sdk/jsError/create", method = RequestMethod.POST)
+  @ResponseBody
+  public CommonResult createSdk(@RequestBody JsErrorParam jsErrorParam) {
+    return create(jsErrorParam);
+  }
+
+  @ApiOperation("Create multiple jsError")
+  @RequestMapping(value = "/jsError/createMulti", method = RequestMethod.POST)
   @ResponseBody
   public CommonResult createMulti(@RequestBody List<JsErrorParam> jsErrorParamList) {
     String now = DateUtil.now();
@@ -63,8 +70,15 @@ public class JsErrorController {
     }
   }
 
+  @ApiOperation("Create multiple jsErrorSdk")
+  @RequestMapping(value = "/sdk/jsError/createMulti", method = RequestMethod.POST)
+  @ResponseBody
+  public CommonResult createMultiSdk(@RequestBody List<JsErrorParam> jsErrorParamList) {
+    return createMulti(jsErrorParamList);
+  }
+
   @ApiOperation("Query list")
-  @RequestMapping(value = "/list", method = RequestMethod.GET)
+  @RequestMapping(value = "/jsError/list", method = RequestMethod.GET)
   @ResponseBody
   public CommonResult<CommonPage<JsError>> list(
       JsErrorQueryParam jsErrorQueryParam,

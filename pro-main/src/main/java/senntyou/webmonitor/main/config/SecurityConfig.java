@@ -20,14 +20,14 @@ import senntyou.webmonitor.main.bo.UserInfo;
 import senntyou.webmonitor.main.component.JwtAuthenticationTokenFilter;
 import senntyou.webmonitor.main.component.RestAuthenticationEntryPoint;
 import senntyou.webmonitor.main.component.RestfulAccessDeniedHandler;
-import senntyou.webmonitor.main.service.JwtUserService;
-import senntyou.webmonitor.model.JwtUser;
+import senntyou.webmonitor.main.service.UserService;
+import senntyou.webmonitor.mbg.model.User;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-  @Autowired private JwtUserService userService;
+  @Autowired private UserService userService;
   @Autowired private RestfulAccessDeniedHandler restfulAccessDeniedHandler;
   @Autowired private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
@@ -43,6 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers(
             HttpMethod.GET,
             "/",
+            "/admin",
+            "/api/sdk/**",
             "/*.html",
             "/favicon.ico",
             "/**/*.html",
@@ -51,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/swagger-resources/**",
             "/v2/api-docs/**")
         .permitAll()
-        .antMatchers("/account/login", "/account/register")
+        .antMatchers("/admin/account/login", "/admin/account/register")
         .permitAll()
         // Every cross origin request will make a OPTIONS request before its real request
         .antMatchers(HttpMethod.OPTIONS)
@@ -91,7 +93,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     return new UserDetailsService() {
       @Override
       public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        JwtUser user = userService.getByUsername(username);
+        User user = userService.getByUsername(username);
         if (user != null) {
           return new UserInfo(user);
         }

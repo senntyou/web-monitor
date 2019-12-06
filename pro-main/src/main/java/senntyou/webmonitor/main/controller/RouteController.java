@@ -17,6 +17,6 @@ public class RouteController {
 
   @RequestMapping(value = "admin", method = RequestMethod.GET)
   public String admin() {
-    return "index";
+    return "admin";
   }
 }

@@ -7,7 +7,7 @@ group = 'senntyou.webmonitor'
 version = '0.1.0'
 archivesBaseName = 'webmonitor'
 sourceCompatibility = 1.8
-description = 'Web Monitor Main Application.'
+description = 'Web Monitor Application.'
 
 mainClassName = 'senntyou.webmonitor.main.App'
 

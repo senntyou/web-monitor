@@ -17,7 +17,7 @@ import senntyou.webmonitor.main.service.UserService;
 
 @RestController
 @Api(tags = "AccountController", description = "Sign up, Login, Password management")
-@RequestMapping("/account")
+@RequestMapping("/admin/account")
 public class AccountController {
   @Autowired private UserService userService;
 

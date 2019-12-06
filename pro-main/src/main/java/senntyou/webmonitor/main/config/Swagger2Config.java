@@ -26,6 +26,6 @@ public class Swagger2Config {
   }
 
   private ApiInfo apiInfo() {
-    return new ApiInfoBuilder().title("Web Monitor Main Application").version("1.0").build();
+    return new ApiInfoBuilder().title("Web Monitor Application").version("1.0").build();
   }
 }

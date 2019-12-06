@@ -9,12 +9,12 @@ import senntyou.webmonitor.mbg.model.JsError;
 
 public interface JsErrorService {
   @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
-  int create(JsError errorLog);
+  int create(JsError jsError);
 
   JsError getById(Integer id);
 
   @Transactional
   int update(Integer id, JsError jsError);
 
-  List<JsError> list(JsErrorQueryParam errorLogQueryParam, Integer pageSize, Integer pageNum);
+  List<JsError> list(JsErrorQueryParam jsErrorQueryParam, Integer pageSize, Integer pageNum);
 }

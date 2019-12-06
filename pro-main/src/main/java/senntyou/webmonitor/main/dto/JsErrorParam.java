@@ -37,19 +37,19 @@ public class JsErrorParam {
   private String time;
 
   public JsError toJsError() {
-    JsError errorLog = new JsError();
+    JsError jsError = new JsError();
 
-    errorLog.setHref(this.getHref());
-    errorLog.setUserAgent(this.getUserAgent());
-    errorLog.setCookie(this.getCookie());
-    errorLog.setMessage(this.getMessage());
-    errorLog.setSource(this.getSource());
-    errorLog.setLine(this.getLine());
-    errorLog.setColumn(this.getColumn());
-    errorLog.setError(this.getError());
-    errorLog.setStack(this.getStack());
-    errorLog.setTime(this.getTime());
+    jsError.setHref(this.getHref());
+    jsError.setUserAgent(this.getUserAgent());
+    jsError.setCookie(this.getCookie());
+    jsError.setMessage(this.getMessage());
+    jsError.setSource(this.getSource());
+    jsError.setLine(this.getLine());
+    jsError.setColumn(this.getColumn());
+    jsError.setError(this.getError());
+    jsError.setStack(this.getStack());
+    jsError.setTime(this.getTime());
 
-    return errorLog;
+    return jsError;
   }
 }
