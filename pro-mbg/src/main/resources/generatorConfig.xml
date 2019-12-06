@@ -5,7 +5,7 @@
 
 <generatorConfiguration>
   <properties resource="generator.properties"/>
-  <context id="MySqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+  <context id="SqliteContext" targetRuntime="MyBatis3" defaultModelType="flat">
     <property name="beginningDelimiter" value="`"/>
     <property name="endingDelimiter" value="`"/>
     <property name="javaFileEncoding" value="UTF-8"/>
@@ -14,7 +14,7 @@
     <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
     <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
 
-    <commentGenerator type="senntyou.webmonitor.CommentGenerator">
+    <commentGenerator type="senntyou.webmonitor.mbg.CommentGenerator">
       <property name="suppressAllComments" value="true"/>
       <property name="suppressDate" value="true"/>
       <!-- whether add column comment in database to java class fields by @ApiModelProperty -->
@@ -38,8 +38,7 @@
                          targetProject="src/main/java"/>
 
     <table tableName="%">
-      <!-- to insert id by snowflake, not by auto_increment of mysql -->
-      <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+      <generatedKey column="id" sqlStatement="select last_insert_rowid()" identity="true"/>
     </table>
   </context>
 </generatorConfiguration>

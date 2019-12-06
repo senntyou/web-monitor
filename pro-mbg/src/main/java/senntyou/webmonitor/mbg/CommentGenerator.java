@@ -1,4 +1,4 @@
-package senntyou.webmonitor;
+package senntyou.webmonitor.mbg;
 
 import java.util.Arrays;
 import java.util.Properties;
