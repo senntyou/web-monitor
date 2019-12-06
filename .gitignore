@@ -78,3 +78,7 @@ atlassian-ide-plugin.xml
 
 # flyway
 flyway*.conf
+
+# Project
+*.db
+*.sqlite

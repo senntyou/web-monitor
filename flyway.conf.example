@@ -1,4 +1,4 @@
-flyway.url=jdbc:mysql://127.0.0.1:3306/starter?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
-flyway.user=root
-flyway.password=root
+flyway.url=jdbc:sqlite:///path/to/web-monitor/db.sqlite
+flyway.user=
+flyway.password=
 flyway.locations=filesystem:./sql/

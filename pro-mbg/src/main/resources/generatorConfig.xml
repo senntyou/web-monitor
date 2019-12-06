@@ -14,7 +14,7 @@
     <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
     <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
 
-    <commentGenerator type="senntyou.sbs.mbg.CommentGenerator">
+    <commentGenerator type="senntyou.webmonitor.CommentGenerator">
       <property name="suppressAllComments" value="true"/>
       <property name="suppressDate" value="true"/>
       <!-- whether add column comment in database to java class fields by @ApiModelProperty -->
@@ -30,11 +30,11 @@
       <property name="nullCatalogMeansCurrent" value="true"/>
     </jdbcConnection>
 
-    <javaModelGenerator targetPackage="senntyou.sbs.mbg.model" targetProject="src/main/java"/>
+    <javaModelGenerator targetPackage="senntyou.webmonitor.mbg.model" targetProject="src/main/java"/>
 
-    <sqlMapGenerator targetPackage="senntyou.sbs.mbg.mapper" targetProject="src/main/resources"/>
+    <sqlMapGenerator targetPackage="senntyou.webmonitor.mbg.mapper" targetProject="src/main/resources"/>
 
-    <javaClientGenerator type="XMLMAPPER" targetPackage="senntyou.sbs.mbg.mapper"
+    <javaClientGenerator type="XMLMAPPER" targetPackage="senntyou.webmonitor.mbg.mapper"
                          targetProject="src/main/java"/>
 
     <table tableName="%">
