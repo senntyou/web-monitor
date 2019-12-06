@@ -1,5 +1,6 @@
 package senntyou.webmonitor.main.service.impl;
 
+import cn.hutool.core.date.DateUtil;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +72,11 @@ public class UserServiceImpl implements UserService {
     User user = new User();
     user.setUsername(username);
     user.setPassword(passwordEncoder.encode(password));
+
+    String now = DateUtil.now();
+    user.setCreateTime(now);
+    user.setUpdateTime(now);
+
     userMapper.insertSelective(user);
     return CommonResult.success(null, "Sign up succeeded");
   }

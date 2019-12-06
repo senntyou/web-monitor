@@ -43,8 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers(
             HttpMethod.GET,
             "/",
-            "/admin",
-            "/api/sdk/**",
             "/*.html",
             "/favicon.ico",
             "/**/*.html",
@@ -53,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/swagger-resources/**",
             "/v2/api-docs/**")
         .permitAll()
-        .antMatchers("/admin/account/login", "/admin/account/register")
+        .antMatchers("/api/sdk/**", "/admin", "/admin/account/login", "/admin/account/register")
         .permitAll()
         // Every cross origin request will make a OPTIONS request before its real request
         .antMatchers(HttpMethod.OPTIONS)
