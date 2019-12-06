@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
-public class Errors implements Serializable {
+public class JsError implements Serializable {
     private Integer id;
 
     private String href;

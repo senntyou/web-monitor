@@ -17,9 +17,9 @@ CREATE TABLE `user` (
 CREATE UNIQUE INDEX `user_idx_username` ON `user`(`username`);
 
 -- ----------------------------
--- Table structure for errors
+-- Table structure for js_error
 -- ----------------------------
-CREATE TABLE `errors` (
+CREATE TABLE `js_error` (
   `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
   `href` TEXT NOT NULL,
   `user_agent` TEXT NOT NULL,

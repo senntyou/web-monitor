@@ -13,7 +13,7 @@ public class App extends SpringBootServletInitializer {
 
   public static void main(String[] args) {
     // Split config files into outer of jar file
-    System.setProperty("spring.config.additional-location", "file:${HOME}/.webmonitor-main/");
+    System.setProperty("spring.config.additional-location", "file:${HOME}/.webmonitor/");
 
     ApplicationContext context = SpringApplication.run(App.class, args);
     String serverPort = context.getEnvironment().getProperty("server.port");
@@ -23,7 +23,7 @@ public class App extends SpringBootServletInitializer {
   @Override
   protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
     // Split config files into outer of jar file
-    System.setProperty("spring.config.additional-location", "file:${HOME}/.webmonitor-main/");
+    System.setProperty("spring.config.additional-location", "file:${HOME}/.webmonitor/");
     return application.sources(App.class);
   }
 }

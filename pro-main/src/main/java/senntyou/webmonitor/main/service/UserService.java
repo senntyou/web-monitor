@@ -1,15 +1,34 @@
 package senntyou.webmonitor.main.service;
 
-import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
-import senntyou.webmonitor.main.dto.UserQueryParam;
-import senntyou.webmonitor.model.User;
+import senntyou.webmonitor.common.CommonResult;
+import senntyou.webmonitor.mbg.model.User;
 
 public interface UserService {
-  User getRecord(long id);
+  /** Get user by username */
+  User getByUsername(String username);
 
+  /** Get user by id */
+  User getById(int id);
+
+  /** Sign up */
+  CommonResult register(String username, String password);
+
+  /**
+   * Login
+   *
+   * @param username Username
+   * @param password Password
+   * @return JWT token
+   */
+  String login(String username, String password);
+
+  String refreshToken(String oldToken);
+
+  /** Update password */
   @Transactional
-  int update(long id, User user);
+  CommonResult updatePassword(String username, String password);
 
-  List<User> list(UserQueryParam userQueryParam, Integer pageSize, Integer pageNum);
+  /** Get current user information */
+  User getCurrentUser();
 }

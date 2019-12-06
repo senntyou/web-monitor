@@ -3,14 +3,14 @@ package senntyou.webmonitor.mbg.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ErrorsExample {
+public class JsErrorExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public ErrorsExample() {
+    public JsErrorExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

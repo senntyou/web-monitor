@@ -5,12 +5,12 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import senntyou.webmonitor.model.JwtUser;
+import senntyou.webmonitor.mbg.model.User;
 
 public class UserInfo implements UserDetails {
-  private JwtUser user;
+  private User user;
 
-  public UserInfo(JwtUser user) {
+  public UserInfo(User user) {
     this.user = user;
   }
 
@@ -50,7 +50,7 @@ public class UserInfo implements UserDetails {
     return true;
   }
 
-  public JwtUser getUser() {
+  public User getUser() {
     return user;
   }
 }

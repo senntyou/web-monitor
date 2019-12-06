@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import senntyou.webmonitor.common.CommonResult;
-import senntyou.webmonitor.main.service.JwtUserService;
+import senntyou.webmonitor.main.service.UserService;
 
 @RestController
 @Api(tags = "AccountController", description = "Sign up, Login, Password management")
 @RequestMapping("/account")
 public class AccountController {
-  @Autowired private JwtUserService userService;
+  @Autowired private UserService userService;
 
   @Value("${jwt.tokenHeader}")
   private String tokenHeader;
