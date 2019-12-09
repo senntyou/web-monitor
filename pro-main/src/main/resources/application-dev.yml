@@ -7,3 +7,6 @@ spring:
     url: jdbc:sqlite:///Users/senntyou/space/senn/web-monitor/db.sqlite
     username:
     password:
+
+  thymeleaf:
+    prefix: classpath:/templates-dev/
