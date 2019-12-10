@@ -8,6 +8,10 @@
 - JDK 8
 - 端口 9101、9102 未被使用
 
+## 功能
+
+- JS 错误上报
+
 ## 部署项目
 
 克隆项目到本地
@@ -66,6 +70,51 @@ curl http://localhost:9101
 # 如果返回上述的结果，表示启动成功
 ```
 
-## 前端 JS SDK 使用
+访问管理页面
 
-请参考 [web-monitor-sdk](https://github.com/senntyou/web-monitor-sdk).
+```
+http://ip:9101/admin
+```
+
+注册一个用户（浏览器中）
+
+```
+const urlSearchParams = new FormData();
+urlSearchParams.append('username', 'yourUsername');
+urlSearchParams.append('password', 'yourPassword');
+fetch('/admin/account/login', {
+  method: 'post',
+  body: urlSearchParams
+}).then(res => res.json()).then(res => {
+  console.log(res);
+});
+```
+
+配置前端 JS SDK [web-monitor-sdk](https://github.com/senntyou/web-monitor-sdk).
+
+```
+import { init } from '@senntyou/web-monitor-sdk';
+
+init({server: 'http://ip:9101'});
+```
+
+## 自定义项目
+
+克隆项目到本地
+
+```
+git clone https://github.com/senntyou/web-monitor.git --depth=1
+git clone https://github.com/senntyou/web-monitor-admin.git --depth=1
+```
+
+安装依赖
+
+```
+cd web-monitor-admin && cnpm install
+```
+
+打包项目
+
+```
+cd ../web-monitor && sh scripts/build.sh
+```
