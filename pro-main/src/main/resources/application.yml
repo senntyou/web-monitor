@@ -1,5 +1,5 @@
 server:
-  port: 9005
+  port: 9101
   use-forward-headers: true
   undertow:
     io-threads: 2
@@ -46,7 +46,7 @@ logging:
 
 management:
   server:
-    port: 9006
+    port: 9102
 
 jwt:
   tokenHeader: Authorization
