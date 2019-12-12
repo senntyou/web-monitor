@@ -98,6 +98,8 @@ import { init } from '@senntyou/web-monitor-sdk';
 init({server: 'http://ip:9101'});
 ```
 
+查看 JS 报错的源信息，可以配合 [source-error](https://github.com/senntyou/source-error) 工具一起使用。
+
 ## 自定义项目
 
 克隆项目到本地
