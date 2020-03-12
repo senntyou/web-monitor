@@ -82,7 +82,7 @@ http://ip:9101/admin
 const urlSearchParams = new FormData();
 urlSearchParams.append('username', 'yourUsername');
 urlSearchParams.append('password', 'yourPassword');
-fetch('/admin/account/login', {
+fetch('/admin/account/register', {
   method: 'post',
   body: urlSearchParams
 }).then(res => res.json()).then(res => {
