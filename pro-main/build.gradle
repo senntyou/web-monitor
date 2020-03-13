@@ -12,7 +12,7 @@ description = 'Web Monitor Application.'
 mainClassName = 'senntyou.webmonitor.main.App'
 
 dependencies {
-  implementation 'org.springframework.boot:spring-boot-starter-security:2.1.4.RELEASE'
+  implementation 'org.springframework.boot:spring-boot-starter-security:2.2.5.RELEASE'
 
   implementation 'net.logstash.logback:logstash-logback-encoder:6.0'
   implementation 'io.jsonwebtoken:jjwt:0.9.1'
