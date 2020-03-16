@@ -78,10 +78,15 @@ http://ip:9101/admin
 
 注册一个用户（浏览器中）
 
+注：
+- `secret` 在 `application-prod.yml` 中的 `app-env.secret` 配置
+- 如果需要更新密码，可以把下面的 `/admin/account/register` 替换成 `/admin/account/updatePassword`
+
 ```
 const urlSearchParams = new FormData();
 urlSearchParams.append('username', 'yourUsername');
 urlSearchParams.append('password', 'yourPassword');
+urlSearchParams.append('secret', 'yourSecret');
 fetch('/admin/account/register', {
   method: 'post',
   body: urlSearchParams

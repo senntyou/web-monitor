@@ -52,7 +52,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/build/**",
             "/v2/api-docs/**")
         .permitAll()
-        .antMatchers("/api/sdk/**", "/admin", "/admin/account/login", "/admin/account/register")
+        .antMatchers(
+            "/api/sdk/**",
+            "/admin",
+            "/admin/account/login",
+            "/admin/account/register",
+            "/admin/account/updatePassword")
         .permitAll()
         // Every cross origin request will make a OPTIONS request before its real request
         .antMatchers(HttpMethod.OPTIONS)

@@ -10,6 +10,7 @@
     <p>Username: <input id="register-username" type="text"/></p>
     <p>Password: <input id="register-password" type="password"/></p>
     <p>Confirm Password: <input name="register-password2" id="register-password2" type="password"/></p>
+    <p>Secret: <input id="register-secret" type="text"/></p>
     <p>
       <button type="submit" id="register-submit">Register</button>
     </p>
@@ -33,8 +34,9 @@
   <div id="update-password-section" data-section="update-password">
     <p>Username: <input id="update-password-username" type="text"/></p>
     <p>Password: <input id="update-password-password" type="password"/></p>
+    <p>Secret: <input id="update-password-secret" type="text"/></p>
     <p>
-      <button type="submit" id="update-password-submit">OK</button>
+      <button type="submit" id="update-password-submit">Update Password</button>
     </p>
   </div>
   <div>
@@ -146,6 +148,7 @@ wFetch('/admin/account/refreshToken').then(res => {
     const username = document.getElementById('register-username').value;
     const password = document.getElementById('register-password').value;
     const password2 = document.getElementById('register-password2').value;
+    const secret = document.getElementById('register-secret').value;
 
     let error = '';
     if (!username) error = 'Username cant be empty.';
@@ -160,6 +163,7 @@ wFetch('/admin/account/refreshToken').then(res => {
     const urlSearchParams = new FormData();
     urlSearchParams.append('username', username);
     urlSearchParams.append('password', password);
+    urlSearchParams.append('secret', secret);
     fetch('/admin/account/register', {
       method: 'post',
       body: urlSearchParams
@@ -215,6 +219,7 @@ wFetch('/admin/account/refreshToken').then(res => {
   document.getElementById('update-password-submit').addEventListener('click', () => {
     const username = document.getElementById('update-password-username').value;
     const password = document.getElementById('update-password-password').value;
+    const secret = document.getElementById('update-password-secret').value;
 
     let error = '';
     if (!username) error = 'Username cant be empty.';
@@ -228,6 +233,7 @@ wFetch('/admin/account/refreshToken').then(res => {
     const urlSearchParams = new FormData();
     urlSearchParams.append('username', username);
     urlSearchParams.append('password', password);
+    urlSearchParams.append('secret', secret);
     wFetch('/admin/account/updatePassword', {
       method: 'post',
       body: urlSearchParams

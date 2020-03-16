@@ -12,3 +12,6 @@ logging:
   level:
     org.springframework.web: ERROR
     senntyou.webmonitor: ERROR
+
+app-env:
+  secret: secret

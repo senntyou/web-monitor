@@ -53,3 +53,6 @@ jwt:
   secret: secret
   expiration: 604800
   tokenHead: Bearer
+
+app-env:
+  secret: secret

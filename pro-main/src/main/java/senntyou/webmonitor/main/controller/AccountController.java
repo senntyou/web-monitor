@@ -27,10 +27,18 @@ public class AccountController {
   @Value("${jwt.tokenHead}")
   private String tokenHead;
 
+  @Value("${app-env:secret}")
+  private String appEnvSecret;
+
   @ApiOperation("Sign up")
   @RequestMapping(value = "/register", method = RequestMethod.POST)
   @ResponseBody
-  public CommonResult register(@RequestParam String username, @RequestParam String password) {
+  public CommonResult register(
+      @RequestParam String username, @RequestParam String password, @RequestParam String secret) {
+    if (!secret.equals(appEnvSecret)) {
+      return CommonResult.failed("Secret is not correct.");
+    }
+
     return userService.register(username, password);
   }
 
@@ -68,7 +76,12 @@ public class AccountController {
   @ApiOperation("Update password")
   @RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
   @ResponseBody
-  public CommonResult updatePassword(@RequestParam String username, @RequestParam String password) {
+  public CommonResult updatePassword(
+      @RequestParam String username, @RequestParam String password, @RequestParam String secret) {
+    if (!secret.equals(appEnvSecret)) {
+      return CommonResult.failed("Secret is not correct.");
+    }
+
     return userService.updatePassword(username, password);
   }
 

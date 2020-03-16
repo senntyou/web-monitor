@@ -10,3 +10,4 @@ spring:
 
   thymeleaf:
     prefix: classpath:/templates-dev/
+    cache: false
