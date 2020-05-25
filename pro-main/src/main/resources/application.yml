@@ -42,11 +42,7 @@ logging:
   level:
     org.springframework.web: ERROR
     senntyou.webmonitor: DEBUG
-  file: ./logs/log.log
-
-management:
-  server:
-    port: 9102
+  file: ./logs
 
 jwt:
   tokenHeader: Authorization
@@ -55,4 +51,5 @@ jwt:
   tokenHead: Bearer
 
 app-env:
+  # Secret to update admin user information.
   secret: secret

@@ -6,7 +6,7 @@
 
 - SQLite3
 - JDK 8
-- 端口 9101、9102 未被使用
+- 端口 9101 未被使用
 
 ## 功能
 
@@ -21,14 +21,15 @@ git clone https://github.com/senntyou/web-monitor.git --depth=1
 ```
 
 1. 在服务器上，找个合适的地方创建 `web-monitor` 目录
-2. 把本地项目中 `bin/run.sh` 上传到服务器 `web-monitor` 目录
+2. 把本地项目中 `bin/*.sh` 上传到服务器 `web-monitor` 目录
 3. 把本地项目中 `sql` 目录上传到服务器 `web-monitor` 目录
 4. 复制本地项目中 `flyway.conf.example` 为 `flyway-prod.conf`，修改 `flyway.url` 配置，并上传到服务器 `web-monitor` 目录
 5. 下载最新的 `webmonitor-x.x.x.jar` 文件，并上传到服务器 `web-monitor/libs` 目录
 
 ```
 - web-monitor/
-  - run.sh              # 可以按实际需要更改 SERVER_ENV 变量的值
+  - run.sh              # 运行、停止、重启、查看程序
+  - rerun.sh            # 运行最新版本的 jar 文件
   - sql/                # 数据库结构定义
   - flyway-prod.conf    # 数据库链接配置（需更新 `flyway.url` 配置）
   - libs/　
@@ -59,6 +60,7 @@ sh run.sh start        # 运行程序
 sh run.sh stop         # 停止程序
 sh run.sh restart      # 重启程序
 sh run.sh status       # 查看程序状态
+sh run.sh version      # 查看程序版本
 ```
 
 测试是否启动成功

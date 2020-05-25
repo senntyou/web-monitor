@@ -9,5 +9,5 @@ spring:
     password:
 
   thymeleaf:
-    prefix: classpath:/templates-dev/
+    prefix: file:./src/main/resources/templates-dev/
     cache: false
