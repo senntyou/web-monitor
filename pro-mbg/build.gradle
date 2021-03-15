@@ -1,5 +1,5 @@
 group = 'senntyou.webmonitor'
-version = '0.1.1'
+version = '0.1.2'
 archivesBaseName = 'mbg'
 sourceCompatibility = 1.8
 description = 'Web Monitor Mybatis Generator Application.'
